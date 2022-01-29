@@ -6,56 +6,65 @@ public class Portal : MonoBehaviour
 {
     private Player player;
 
-    private GameObject normalWorldScene;
-    private GameObject ghostWordScene;
+    public GameObject normalWorldScene;
+    public GameObject ghostWorldScene;
+    public Transform endPoint;
     private bool normalWorld;
-    private bool ghostWorld;
     void Start()
     {
-        normalWorldScene = GameObject.Find("NormalWorld");
-        ghostWordScene = GameObject.Find("GhostWorld");
-        normalWorldScene.SetActive(true);
-        ghostWordScene.SetActive(false);
-
+        if (normalWorld)
+        {
+            normalWorldScene.SetActive(true);
+            ghostWorldScene.SetActive(false);
+        }
         normalWorld = true;
-
-        player = new Player();
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     void Update()
     {
-        
+        if (normalWorld == true)
+        {
+            normalWorldScene.SetActive(true);
+            ghostWorldScene.SetActive(false);
+        }
+        if (normalWorld == false)
+        {
+            normalWorldScene.SetActive(false);
+            ghostWorldScene.SetActive(true);
+        }
+        Debug.Log(normalWorld);
     }
-    public void ChangeWorld(int w)
+/*    public void ChangeWorld(int w)
     {
         if (w.Equals(0))
         {
             normalWorld = true;
-            ghostWorld = false;
             player.ChangeSprite(player.normalSprite);
             normalWorldScene.SetActive(true);
-            ghostWordScene.SetActive(false);
+            ghostWorldScene.SetActive(false);
         }
         if (w.Equals(1))
         {
             normalWorld = false;
-            ghostWorld = true;
             player.ChangeSprite(player.ghostSprite);
             normalWorldScene.SetActive(false);
-            ghostWordScene.SetActive(true);
+            ghostWorldScene.SetActive(true);
         }
-    }
+    }*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             if (normalWorld)
             {
-                ChangeWorld(1);
+                normalWorld = false;
+                player.transform.position = endPoint.transform.position;
             }
-            if (ghostWorld)
+            if (!normalWorld)
             {
-                ChangeWorld(0);
+                normalWorld = true;
+                player.transform.position = endPoint.transform.position;
             }
         }
     }
