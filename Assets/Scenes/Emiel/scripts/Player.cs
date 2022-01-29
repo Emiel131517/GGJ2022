@@ -1,10 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
+
+    private int health;
+    private int maxHealth;
+    [SerializeField]
+    private Sprite heart;
+    [SerializeField]
+    private Sprite heartEmpty;
+    [SerializeField]
+    private Image[] hearts;
 
     private Sprite activePlayerSprite;
     public Sprite ghostSprite;
@@ -20,13 +30,28 @@ public class Player : MonoBehaviour
     private float jumpForce;
     private void Start()
     {
+        maxHealth = 3;
+        health = maxHealth;
+
         jumpForce = 7.5f;
         moveSpeed = 1200;
+
         activePlayerSprite = GetComponentInChildren<SpriteRenderer>().sprite = ghostSprite;
         rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i < health)
+            {
+                hearts[i].sprite = heart;
+            }
+            else
+            {
+                hearts[i].sprite = heartEmpty;
+            }
+        }
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
         Movement();
     }
@@ -51,5 +76,24 @@ public class Player : MonoBehaviour
     public void ChangeSprite(Sprite newPlayerSprite)
     {
         activePlayerSprite = newPlayerSprite;
+    }
+    private void Damage(int amount)
+    {
+        if (health > 0)
+        {
+            health -= amount;
+            if (health <= 0)
+            {
+                health = 0;
+            }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<Enemy>())
+        {
+            Damage(1);
+            Debug.Log(health);
+        }
     }
 }
