@@ -17,8 +17,10 @@ public class Player : MonoBehaviour
 
     private bool isGrounded;
     private float moveSpeed;
+    private float jumpForce;
     private void Start()
     {
+        jumpForce = 7.5f;
         moveSpeed = 1200;
         activePlayerSprite = GetComponentInChildren<SpriteRenderer>().sprite = ghostSprite;
         rb = GetComponent<Rigidbody2D>();
@@ -43,7 +45,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.velocity = new Vector2(0, 5f);
+            rb.velocity = new Vector2(0, jumpForce);
         }
     }
     public void ChangeSprite(Sprite newPlayerSprite)
