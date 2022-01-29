@@ -1,23 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Portal : MonoBehaviour
 {
-    float xpos;
-    float ypos;
+    private Player player;
 
-    Player player;
-
-    bool normalWorld;
-    bool ghostWorld;
+    private GameObject normalWorldScene;
+    private GameObject ghostWordScene;
+    private bool normalWorld;
+    private bool ghostWorld;
     void Start()
     {
-        player = new Player();
+        normalWorldScene = GameObject.Find("NormalWorld");
+        ghostWordScene = GameObject.Find("GhostWorld");
+        normalWorldScene.SetActive(true);
+        ghostWordScene.SetActive(false);
 
-        ypos = transform.position.y;
-        xpos = transform.position.x;
+        normalWorld = true;
+
+        player = new Player();
     }
 
     void Update()
@@ -31,25 +33,30 @@ public class Portal : MonoBehaviour
             normalWorld = true;
             ghostWorld = false;
             player.ChangeSprite(player.normalSprite);
-            SceneManager.LoadScene("Emiel");
+            normalWorldScene.SetActive(true);
+            ghostWordScene.SetActive(false);
         }
         if (w.Equals(1))
         {
             normalWorld = false;
             ghostWorld = true;
             player.ChangeSprite(player.ghostSprite);
-            SceneManager.LoadScene("GhostWorld");
+            normalWorldScene.SetActive(false);
+            ghostWordScene.SetActive(true);
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (normalWorld)
+        if (collision.CompareTag("Player"))
         {
-            ChangeWorld(0);
-        }
-        if (ghostWorld)
-        {
-            ChangeWorld(1);
+            if (normalWorld)
+            {
+                ChangeWorld(1);
+            }
+            if (ghostWorld)
+            {
+                ChangeWorld(0);
+            }
         }
     }
 }
