@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public Animator animator;
 
     private int health;
     private int maxHealth;
@@ -42,6 +43,8 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        animator.SetFloat("SpeedAnim", Mathf.Abs(rb.velocity.x));
+        animator.SetBool("OnGround", isGrounded);
         for (int i = 0; i < hearts.Length; i++)
         {
             if (i < health)
@@ -58,16 +61,18 @@ public class Player : MonoBehaviour
     }
     private void Movement()
     {
+        Debug.Log("Movementspeed" + rb.velocity.x);
+        Debug.Log("Jump" + isGrounded);
         float horizontal = Input.GetAxis("Horizontal");
-
+        
         rb.velocity = new Vector2(horizontal * moveSpeed * Time.deltaTime, rb.velocity.y);
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             GetComponent<SpriteRenderer>().flipX = true;
+        }
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
