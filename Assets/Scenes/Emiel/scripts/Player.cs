@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     private float moveSpeed;
     private void Start()
     {
-        moveSpeed = 800;
+        moveSpeed = 1200;
         activePlayerSprite = GetComponentInChildren<SpriteRenderer>().sprite = ghostSprite;
         rb = GetComponent<Rigidbody2D>();
     }
