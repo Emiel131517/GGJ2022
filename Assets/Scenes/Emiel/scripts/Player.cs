@@ -68,12 +68,27 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(horizontal * moveSpeed * Time.deltaTime, rb.velocity.y);
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            if (activePlayerSprite = ghostSprite)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (activePlayerSprite = normalSprite)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;        
+            }
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            if (activePlayerSprite = ghostSprite)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else if (activePlayerSprite = normalSprite)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
         }
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(0, jumpForce);
