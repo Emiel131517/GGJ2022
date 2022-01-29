@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void GoToLevelsMenu()
     {
-        SceneManager.LoadScene("LevelsMenu");
+        SceneManager.LoadScene("LevelsScreen");
     }
     public void GoToCreditsMenu()
     {
