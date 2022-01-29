@@ -6,6 +6,10 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    private Sprite activePlayerSprite;
+    public Sprite ghostSprite;
+    public Sprite normalSprite;
+
     [SerializeField]
     private Transform groundCheck;
     [SerializeField]
@@ -33,5 +37,9 @@ public class Player : MonoBehaviour
         {
             rb.velocity = new Vector2(0, 5f);
         }
+    }
+    public void ChangeSprite(Sprite newPlayerSprite)
+    {
+        activePlayerSprite = newPlayerSprite;
     }
 }
