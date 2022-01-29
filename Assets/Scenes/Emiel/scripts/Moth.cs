@@ -2,31 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Moth : Enemy
 {
-    private float moveSpeed;
-
-    private float moveArea;
-    private float moveAreaMax;
-    private float moveAreMin;
     void Start()
     {
-        moveSpeed = 500;
-
-        moveAreaMax = 100;
-        moveAreMin = -100;
+        moveArea = 10f;
+        moveSpeed = 1f;
+        startPos = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (moveArea < 100)
-        {
-
-        }
-    }
-    private void MoveRight()
-    {
-        transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
+        Vector2 moving = startPos;
+        moving.x += moveArea * Mathf.Sin(Time.time * moveSpeed);
+        transform.position = moving;
     }
 }
