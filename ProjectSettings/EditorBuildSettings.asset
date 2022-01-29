@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GhostWorld.unity
-    guid: 014d0576b58dbd746a76d4236418db5b
+    path: Assets/Scenes/Levels/MainMenu.unity
+    guid: 48ec44a7fe92f384fa5eb271dcef809e
   - enabled: 1
-    path: Assets/Scenes/NormalWorld.unity
-    guid: 38f8abf00829ff6418a77c4eec168375
+    path: Assets/Scenes/Levels/Level_1.unity
+    guid: 2d6f655f81ed9e845b4a11abdedb409f
+  - enabled: 1
+    path: Assets/Scenes/Levels/EndScreen.unity
+    guid: a03052fe711d7544e83c7fe0894accb5
+  - enabled: 1
+    path: Assets/Scenes/Levels/LevelsMenu.unity
+    guid: 988a158a832d9134e8f0b876bf646996
+  - enabled: 1
+    path: Assets/Scenes/Levels/CreditsMenu.unity
+    guid: f86b1e62fe4c6904ea2e9eb73e74d913
   m_configObjects: {}
