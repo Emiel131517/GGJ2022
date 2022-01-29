@@ -543,7 +543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508824000c9679b4c92702af3358f5ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalWorld: 0
+  normalWorldScene: {fileID: 0}
+  ghostWorldScene: {fileID: 0}
+  endPoint: {fileID: 0}
 --- !u!61 &715335708
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -644,6 +646,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d743e78bbba006846b6928abb70a8df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  heart: {fileID: 0}
+  heartEmpty: {fileID: 0}
+  hearts: []
   ghostSprite: {fileID: 21300000, guid: 40ab0a2dbdd27de45b0fc0a1f10850ed, type: 3}
   normalSprite: {fileID: 21300000, guid: 71f2fb144218c8a488a46960d722e0e3, type: 3}
   groundCheck: {fileID: 1969504719}
