@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         moveSpeed = 1000;
+        activePlayerSprite = GetComponentInChildren<SpriteRenderer>().sprite = ghostSprite;
         rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
@@ -32,7 +33,14 @@ public class Player : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
 
         rb.velocity = new Vector2(horizontal * moveSpeed * Time.deltaTime, rb.velocity.y);
-
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(0, 5f);

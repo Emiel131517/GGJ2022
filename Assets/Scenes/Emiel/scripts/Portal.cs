@@ -31,12 +31,14 @@ public class Portal : MonoBehaviour
             normalWorld = true;
             ghostWorld = false;
             player.ChangeSprite(player.normalSprite);
+            SceneManager.LoadScene("Emiel");
         }
         if (w.Equals(1))
         {
             normalWorld = false;
             ghostWorld = true;
             player.ChangeSprite(player.ghostSprite);
+            SceneManager.LoadScene("GhostWorld");
         }
     }
     private void OnTriggerEnter(Collider other)
