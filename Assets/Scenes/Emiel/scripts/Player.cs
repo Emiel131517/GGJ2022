@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -84,7 +85,7 @@ public class Player : MonoBehaviour
             health -= amount;
             if (health <= 0)
             {
-                health = 0;
+                SceneManager.LoadScene("EndScreen");
             }
         }
     }
