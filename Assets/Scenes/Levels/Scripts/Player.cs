@@ -20,13 +20,8 @@ public class Player : MonoBehaviour
 
     private GameObject normalWorldScene;
     private GameObject ghostWorldScene;
-
-    private Sprite activePlayerSprite;
-    private Sprite activeBackground;
-    public Sprite normalBackground;
-    public Sprite ghostBackground;
-    public Sprite ghostSprite;
-    public Sprite normalSprite;
+    private PlayerSpriteHandler psHandler;
+    private SpriteRenderer spriteRenderer;
 
     [SerializeField]
     private Transform groundCheck;
@@ -40,6 +35,10 @@ public class Player : MonoBehaviour
     {
         normalWorldScene = GameObject.Find("NormalWorld");
         ghostWorldScene = GameObject.Find("GhostWorld");
+
+        psHandler = gameObject.GetComponent<PlayerSpriteHandler>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
         normalWorldScene.SetActive(true);
         ghostWorldScene.SetActive(false);
 
@@ -49,7 +48,6 @@ public class Player : MonoBehaviour
         jumpForce = 9f;
         moveSpeed = 1200;
 
-        activePlayerSprite = normalSprite;
         rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
@@ -94,24 +92,24 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(horizontal * moveSpeed * Time.deltaTime, rb.velocity.y);
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (activePlayerSprite = ghostSprite)
+            if (spriteRenderer.sprite = psHandler.ghostSprite)
             {
-                GetComponent<SpriteRenderer>().flipX = true;
+                spriteRenderer.flipX = true;
             }
-            else if (activePlayerSprite = normalSprite)
+            else if (spriteRenderer.sprite = psHandler.normalSprite)
             {
-                GetComponent<SpriteRenderer>().flipX = false;        
+                spriteRenderer.flipX = false;        
             }
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (activePlayerSprite = ghostSprite)
+            if (spriteRenderer.sprite = psHandler.ghostSprite)
             {
-                GetComponent<SpriteRenderer>().flipX = false;
+                spriteRenderer.flipX = false;
             }
-            else if (activePlayerSprite = normalSprite)
+            else if (spriteRenderer.sprite = psHandler.normalSprite)
             {
-                GetComponent<SpriteRenderer>().flipX = true;
+                spriteRenderer.flipX = true;
             }
         }
 
@@ -124,21 +122,16 @@ public class Player : MonoBehaviour
     {
         if (w.Equals(0))
         {
-            ChangeSprite(normalSprite, normalBackground);
+            psHandler.ChangeSprite(psHandler.normalSprite, "Ghost");
             normalWorldScene.SetActive(true);
             ghostWorldScene.SetActive(false);
         }
         if (w.Equals(1))
         {
-            ChangeSprite(ghostSprite, ghostBackground);
+            psHandler.ChangeSprite(psHandler.ghostSprite, "Normal");
             normalWorldScene.SetActive(false);
             ghostWorldScene.SetActive(true);
         }
-    }
-    public void ChangeSprite(Sprite newPlayerSprite, Sprite newBackground)
-    {
-        activePlayerSprite = newPlayerSprite;
-        activeBackground = newBackground;
     }
     public void Damage(int amount)
     {
