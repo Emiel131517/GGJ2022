@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public Animator animator;
 
     private int health;
-    private int maxHealth;
+    public int maxHealth;
     [SerializeField]
     private Sprite heart;
     [SerializeField]
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         jumpForce = 9f;
         moveSpeed = 1200;
 
-        activePlayerSprite = GetComponentInChildren<SpriteRenderer>().sprite = ghostSprite;
+        activePlayerSprite = GetComponent<SpriteRenderer>().sprite = ghostSprite;
         rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
@@ -133,7 +133,7 @@ public class Player : MonoBehaviour
     {
         activePlayerSprite = newPlayerSprite;
     }
-    private void Damage(int amount)
+    public void Damage(int amount)
     {
         if (health > 0)
         {
