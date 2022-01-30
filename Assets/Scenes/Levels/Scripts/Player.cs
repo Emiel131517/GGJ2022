@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     private GameObject ghostWorldScene;
 
     private Sprite activePlayerSprite;
+    private Sprite activeBackground;
+    public Sprite normalBackground;
+    public Sprite ghostBackground;
     public Sprite ghostSprite;
     public Sprite normalSprite;
 
@@ -46,7 +49,7 @@ public class Player : MonoBehaviour
         jumpForce = 9f;
         moveSpeed = 1200;
 
-        activePlayerSprite = GetComponent<SpriteRenderer>().sprite = ghostSprite;
+        activePlayerSprite = normalSprite;
         rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
@@ -118,20 +121,21 @@ public class Player : MonoBehaviour
     {
         if (w.Equals(0))
         {
-            ChangeSprite(normalSprite);
+            ChangeSprite(normalSprite, normalBackground);
             normalWorldScene.SetActive(true);
             ghostWorldScene.SetActive(false);
         }
         if (w.Equals(1))
         {
-            ChangeSprite(ghostSprite);
+            ChangeSprite(ghostSprite, ghostBackground);
             normalWorldScene.SetActive(false);
             ghostWorldScene.SetActive(true);
         }
     }
-    public void ChangeSprite(Sprite newPlayerSprite)
+    public void ChangeSprite(Sprite newPlayerSprite, Sprite newBackground)
     {
         activePlayerSprite = newPlayerSprite;
+        activeBackground = newBackground;
     }
     public void Damage(int amount)
     {

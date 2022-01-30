@@ -19,14 +19,14 @@ public class Portal : MonoBehaviour
     {
         if (w.Equals(0))
         {
-            player.ChangeSprite(player.normalSprite);
+            player.ChangeSprite(player.normalSprite, player.normalBackground);
             normalWorldScene.SetActive(true);
             ghostWorldScene.SetActive(false);
             player.transform.position = endPoint.transform.position;
         }
         if (w.Equals(1))
         {
-            player.ChangeSprite(player.ghostSprite);
+            player.ChangeSprite(player.ghostSprite, player.ghostBackground);
             normalWorldScene.SetActive(false);
             ghostWorldScene.SetActive(true);
             player.transform.position = endPoint.transform.position;

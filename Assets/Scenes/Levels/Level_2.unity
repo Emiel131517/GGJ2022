@@ -41863,7 +41863,23 @@ PolygonCollider2D:
       - {x: 322.0351, y: 279.96417}
       - {x: 323.0192, y: 279.9363}
       - {x: 327.03134, y: 283.94836}
-      - {x: 340.93216, y: 284.00034}
+      - {x: 340.99976, y: 283.99512}
+      - {x: 341.0145, y: 284.99173}
+      - {x: 348.0136, y: 284.9831}
+      - {x: 348.0101, y: 285.9951}
+      - {x: 351.00247, y: 285.98563}
+      - {x: 351.0182, y: 287.0056}
+      - {x: 355.03476, y: 286.98117}
+      - {x: 355.02588, y: 287.99078}
+      - {x: 357.00864, y: 288.0095}
+      - {x: 357.00708, y: 288.98703}
+      - {x: 357.98914, y: 288.98935}
+      - {x: 358.0051, y: 291.01105}
+      - {x: 359.01633, y: 290.99207}
+      - {x: 359.01254, y: 292.00198}
+      - {x: 372.97006, y: 291.95084}
+      - {x: 359.57968, y: 289.1831}
+      - {x: 358.35587, y: 287.41437}
       - {x: 344.01724, y: 281.6294}
       - {x: 351.98337, y: 281.5068}
       - {x: 354.99393, y: 282.27835}
@@ -42044,6 +42060,75 @@ PolygonCollider2D:
       - {x: 280.0533, y: 260.93307}
       - {x: 270.58182, y: 268.53357}
       - {x: 271.98785, y: 274.9874}
+--- !u!1001 &1694778901271863134
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 309.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 284.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714333, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694778900994714334, guid: 1da9781b774bdfd4aaf6416fac29de75,
+        type: 3}
+      propertyPath: m_Name
+      value: Finish_vlag
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1da9781b774bdfd4aaf6416fac29de75, type: 3}
 --- !u!1001 &2724129574862237110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42151,6 +42236,18 @@ PrefabInstance:
       propertyPath: hearts.Array.data[2]
       value: 
       objectReference: {fileID: 1410478387}
+    - target: {fileID: 8903865632023685385, guid: da20ed88eb076db4ca7c5324b1a3453f,
+        type: 3}
+      propertyPath: ghostBackground
+      value: 
+      objectReference: {fileID: 21300000, guid: d1209e13c07fb46439c5bbe3fec003f7,
+        type: 3}
+    - target: {fileID: 8903865632023685385, guid: da20ed88eb076db4ca7c5324b1a3453f,
+        type: 3}
+      propertyPath: normalBackground
+      value: 
+      objectReference: {fileID: 21300000, guid: 1c4277d71bc5c5d4ab523dc553d82e18,
+        type: 3}
     - target: {fileID: 8903865632023685389, guid: da20ed88eb076db4ca7c5324b1a3453f,
         type: 3}
       propertyPath: m_LocalPosition.x
