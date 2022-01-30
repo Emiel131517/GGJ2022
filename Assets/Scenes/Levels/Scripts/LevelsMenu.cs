@@ -11,7 +11,7 @@ public class LevelsMenu : MonoBehaviour
     }
     public void LevelTwo()
     {
-        Debug.Log("Coming soon!");
+        SceneManager.LoadScene("Level_2");
     }
     public void LevelThree()
     {
