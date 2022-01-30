@@ -16,12 +16,11 @@ public class Fox : Enemy
         Vector2 moving = startPos;
         moving.x += moveArea * Mathf.Sin(Time.time * moveSpeed);
         transform.position = moving;
-        
-        if (moving.x > 0)
+
+        if (startPos.x < moving.x)
             GetComponent<SpriteRenderer>().flipX = true;
-        else if (moving.x < 0)
+        else if (startPos.x > moving.x)
             GetComponent<SpriteRenderer>().flipX = false;
-        Debug.Log("Moving X" + moving.x);
     }
 }
 
