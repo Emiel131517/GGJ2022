@@ -81,6 +81,10 @@ public class Player : MonoBehaviour
                 ChangeWorld(0);
             }
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
     private void Movement()
     {

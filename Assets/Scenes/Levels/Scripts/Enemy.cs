@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    protected float moveSpeed;
-    protected float moveArea;
+    public float moveSpeed;
+    public float moveArea;
     protected Vector2 startPos;
 }

@@ -6,8 +6,6 @@ public class Moth : Enemy
 {
     void Start()
     {
-        moveArea = 10f;
-        moveSpeed = 1f;
         startPos = transform.position;
     }
 
