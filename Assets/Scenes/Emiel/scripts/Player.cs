@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Image[] hearts;
 
+    private GameObject normalWorldScene;
+    private GameObject ghostWorldScene;
+
     private Sprite activePlayerSprite;
     public Sprite ghostSprite;
     public Sprite normalSprite;
@@ -32,6 +35,11 @@ public class Player : MonoBehaviour
     private float jumpForce;
     private void Start()
     {
+        normalWorldScene = GameObject.Find("NormalWorld");
+        ghostWorldScene = GameObject.Find("GhostWorld");
+        normalWorldScene.SetActive(true);
+        ghostWorldScene.SetActive(false);
+
         maxHealth = 3;
         health = maxHealth;
 
@@ -58,6 +66,17 @@ public class Player : MonoBehaviour
         }
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
         Movement();
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (normalWorldScene.activeSelf)
+            {
+                ChangeWorld(1);
+            }
+            else if (!normalWorldScene.activeSelf)
+            {
+                ChangeWorld(0);
+            }
+        }
     }
     private void Movement()
     {
@@ -92,6 +111,21 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.velocity = new Vector2(0, jumpForce);
+        }
+    }
+    public void ChangeWorld(int w)
+    {
+        if (w.Equals(0))
+        {
+            ChangeSprite(normalSprite);
+            normalWorldScene.SetActive(true);
+            ghostWorldScene.SetActive(false);
+        }
+        if (w.Equals(1))
+        {
+            ChangeSprite(ghostSprite);
+            normalWorldScene.SetActive(false);
+            ghostWorldScene.SetActive(true);
         }
     }
     public void ChangeSprite(Sprite newPlayerSprite)
