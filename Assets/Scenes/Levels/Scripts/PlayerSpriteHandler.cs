@@ -17,7 +17,6 @@ public class PlayerSpriteHandler : MonoBehaviour
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        animator = gameObject.GetComponent<Animator>();
 
         normalBackground.SetActive(true);
         ghostBackground.SetActive(false);
