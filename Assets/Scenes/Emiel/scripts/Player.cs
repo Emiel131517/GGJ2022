@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
         maxHealth = 3;
         health = maxHealth;
 
-        jumpForce = 7.5f;
+        jumpForce = 9f;
         moveSpeed = 1200;
 
         activePlayerSprite = GetComponentInChildren<SpriteRenderer>().sprite = ghostSprite;
