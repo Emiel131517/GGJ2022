@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     {
         animator.SetFloat("SpeedAnim", Mathf.Abs(rb.velocity.x));
         animator.SetBool("OnGround", isGrounded);
+
         for (int i = 0; i < hearts.Length; i++)
         {
             if (i < health)
