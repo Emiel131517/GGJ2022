@@ -122,13 +122,13 @@ public class Player : MonoBehaviour
     {
         if (w.Equals(0))
         {
-            psHandler.ChangeSprite(psHandler.normalSprite, psHandler.normalBackground);
+            psHandler.ChangeSprite(psHandler.normalSprite, "Ghost");
             normalWorldScene.SetActive(true);
             ghostWorldScene.SetActive(false);
         }
         if (w.Equals(1))
         {
-            psHandler.ChangeSprite(psHandler.ghostSprite, psHandler.ghostBackground);
+            psHandler.ChangeSprite(psHandler.ghostSprite, "Normal");
             normalWorldScene.SetActive(false);
             ghostWorldScene.SetActive(true);
         }

@@ -5,28 +5,33 @@ using UnityEngine;
 public class PlayerSpriteHandler : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    private SpriteRenderer backgroundSpriteRenderer;
-    public Sprite normalBackground;
-    public Sprite ghostBackground;
+
+    public GameObject normalBackground;
+    public GameObject ghostBackground;
+
     public Sprite ghostSprite;
     public Sprite normalSprite;
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        backgroundSpriteRenderer = GameObject.Find("Background").GetComponent<SpriteRenderer>();
 
         spriteRenderer.sprite = normalSprite;
-        backgroundSpriteRenderer.sprite = normalBackground;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        normalBackground.SetActive(true);
+        ghostBackground.SetActive(false);
     }
-    public void ChangeSprite(Sprite newPlayerSprite, Sprite newBackgroundSprite)
+    public void ChangeSprite(Sprite newPlayerSprite, string background)
     {
         spriteRenderer.sprite = newPlayerSprite;
-        backgroundSpriteRenderer.sprite = newBackgroundSprite;
+        if (background == "Ghost")
+        {
+            normalBackground.SetActive(false);
+            ghostBackground.SetActive(true);
+        }
+        else if (background == "Normal")
+        {
+            normalBackground.SetActive(true);
+            ghostBackground.SetActive(false);
+        }
     }
 }
