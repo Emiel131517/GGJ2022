@@ -11,9 +11,6 @@ public class PlayerSpriteHandler : MonoBehaviour
 
     public Sprite ghostSprite;
     public Sprite normalSprite;
-
-    public Animation ghost;
-    public Animation man;
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
