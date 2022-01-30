@@ -15,7 +15,7 @@ public class Finish : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("LevelsMenu");
+            SceneManager.LoadScene("LevelsScreen");
         }
     }
 }
