@@ -25,13 +25,13 @@ public class PlayerSpriteHandler : MonoBehaviour
         spriteRenderer.sprite = newPlayerSprite;
         if (background == "Ghost")
         {
-            normalBackground.SetActive(false);
-            ghostBackground.SetActive(true);
+            normalBackground.SetActive(true);
+            ghostBackground.SetActive(false);
         }
         else if (background == "Normal")
         {
-            normalBackground.SetActive(true);
-            ghostBackground.SetActive(false);
+            normalBackground.SetActive(false);
+            ghostBackground.SetActive(true);
         }
     }
 }
