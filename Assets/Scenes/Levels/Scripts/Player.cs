@@ -88,8 +88,7 @@ public class Player : MonoBehaviour
     }
     private void Movement()
     {
-        Debug.Log("Movementspeed" + rb.velocity.x);
-        Debug.Log("Jump" + isGrounded);
+        
         float horizontal = Input.GetAxis("Horizontal");
         
         rb.velocity = new Vector2(horizontal * moveSpeed * Time.deltaTime, rb.velocity.y);
