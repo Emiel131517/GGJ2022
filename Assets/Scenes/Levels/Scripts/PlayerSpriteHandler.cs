@@ -11,16 +11,18 @@ public class PlayerSpriteHandler : MonoBehaviour
 
     public Sprite ghostSprite;
     public Sprite normalSprite;
+
+    public Animation ghost;
+    public Animation man;
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-
-        spriteRenderer.sprite = normalSprite;
+        animator = gameObject.GetComponent<Animator>();
 
         normalBackground.SetActive(true);
         ghostBackground.SetActive(false);
     }
-    public void ChangeSprite(Sprite newPlayerSprite, string background)
+    public void ChangeSprite(Sprite newPlayerSprite ,string background)
     {
         spriteRenderer.sprite = newPlayerSprite;
         if (background == "Ghost")
@@ -28,7 +30,7 @@ public class PlayerSpriteHandler : MonoBehaviour
             normalBackground.SetActive(true);
             ghostBackground.SetActive(false);
         }
-        else if (background == "Normal")
+        if (background == "Normal")
         {
             normalBackground.SetActive(false);
             ghostBackground.SetActive(true);

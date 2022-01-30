@@ -31,8 +31,10 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     private float moveSpeed;
     private float jumpForce;
+    private bool man;
     private void Start()
     {
+        man = true;
         normalWorldScene = GameObject.Find("NormalWorld");
         ghostWorldScene = GameObject.Find("GhostWorld");
 
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
     {
         animator.SetFloat("SpeedAnim", Mathf.Abs(rb.velocity.x));
         animator.SetBool("OnGround", isGrounded);
+        animator.SetBool("Man", man);
 
         for (int i = 0; i < hearts.Length; i++)
         {
@@ -122,15 +125,17 @@ public class Player : MonoBehaviour
     {
         if (w.Equals(0))
         {
-            psHandler.ChangeSprite(psHandler.normalSprite, "Ghost");
+            psHandler.ChangeSprite(psHandler.normalSprite, "Normal");
             normalWorldScene.SetActive(true);
             ghostWorldScene.SetActive(false);
+            man = true;
         }
         if (w.Equals(1))
         {
-            psHandler.ChangeSprite(psHandler.ghostSprite, "Normal");
+            psHandler.ChangeSprite(psHandler.ghostSprite, "Ghost");
             normalWorldScene.SetActive(false);
             ghostWorldScene.SetActive(true);
+            man = false;
         }
     }
     public void Damage(int amount)
