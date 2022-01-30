@@ -95,22 +95,27 @@ public class Player : MonoBehaviour
         rb.velocity = new Vector2(horizontal * moveSpeed * Time.deltaTime, rb.velocity.y);
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (spriteRenderer.sprite = psHandler.ghostSprite)
+           
+            if (man is true)
             {
                 spriteRenderer.flipX = true;
             }
-            else if (spriteRenderer.sprite = psHandler.normalSprite)
-            {
-                spriteRenderer.flipX = false;        
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            if (spriteRenderer.sprite = psHandler.ghostSprite)
+            else if (man is false)
             {
                 spriteRenderer.flipX = false;
             }
-            else if (spriteRenderer.sprite = psHandler.normalSprite)
+
+
+
+        }
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            
+            if (man is true)
+            {
+                spriteRenderer.flipX = false;
+            }
+            else if (man is false)
             {
                 spriteRenderer.flipX = true;
             }
